@@ -17,13 +17,9 @@ from mutagen.mp3 import MP3
 
 # Defines an empty list of song filepaths to be appended, as well as a dictionary
 # which will contain all the song information
-global song_dictionary
-song_dictionary = {}
-global library
-library = []
-global query
+
 # Sets the query of the search
-query = raw_input("Please enter your query: ")
+
 
 
 def search_all(dictionary, query):
@@ -34,7 +30,7 @@ def search_all(dictionary, query):
             if query in y:
                 return_list.append(dictionary[x])
     return return_list
-
+    
 def search_artists(dictionary, query):
     '''Defines a function to search through all artists to find a match with the query'''
     return_list = []
@@ -80,7 +76,7 @@ def show_songs(artist_choice, album_choice):
 # Code to add all song filepaths to a library list
 def create_lib(dir_path):
     
-    global library
+    library = []
     
     for root, dirs, files in os.walk(dir_path):
         for file in files:
@@ -93,7 +89,7 @@ def create_lib(dir_path):
 # song information
 def read_data(library):
     
-    global song_dictionary
+    song_dictionary = {}
 
     for songs in library:
         song = MP3(songs, ID3=EasyID3)
@@ -135,12 +131,10 @@ def read_data(library):
 
 
 if __name__ == '__main__':
+    pass
 
 # Sets the directory path where the music is located
-    currentDir = os.getcwd()
-    lib_dir = "%s/Music_Library"%currentDir
-    
-    mainDict = read_data(create_lib(lib_dir))
+
     
 
 '''
