@@ -6,10 +6,6 @@ from Tkinter import *
 import ttk
 import pyTunes
 
-currentDir = os.getcwd()
-lib_dir = "%s/Music_Library"%currentDir
-mainDict = pyTunes.read_data(pyTunes.create_lib(lib_dir))
-
 class Application(Frame):
     def show_albums(self):
         pass
